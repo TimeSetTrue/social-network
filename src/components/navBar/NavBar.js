@@ -1,10 +1,11 @@
 import React from 'react';
+import s from './navBar.module.css';
 
 const NavBar = () => {
 	return (
-		<div className="app-bar">
+		<div className={s.bar}>
 			<nav>
-				<ul className="app-bar-list">
+				<ul className={s.bar_list}>
 					<li>
 						<a href="#">Profile</a>
 					</li>

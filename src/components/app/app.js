@@ -2,11 +2,11 @@ import React from 'react';
 import Header from '../header';
 import NavBar from '../navBar';
 import Profile from '../profile';
-import './app.css';
+import s from './app.module.css';
 
 const App = () => {
 	return (
-		<div className="app">	
+		<div className={s.app}>
 			<Header />
 			<NavBar />
 			<Profile />
