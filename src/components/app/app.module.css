@@ -11,3 +11,8 @@
 	margin: 0 auto;
 	grid-gap: 10px;
 }
+
+.content_wrapp {
+	grid-area: profile;
+	background: aqua;
+}

@@ -1,0 +1,92 @@
+.dialogs {
+	display: flex;
+}
+
+.dialogs_item {
+	padding: 15px 0;
+	font-size: 18px;
+	list-style-type: none;
+	text-decoration: none;
+}
+
+.dialogs_item::before {
+	content: "\2022";
+	font-size: 24px;
+	margin-right: 20px;
+	vertical-align: middle;
+}
+
+.dialog_list {
+	width: 30%;
+	border-right: 1px solid green;
+	padding-left: 10px;
+}
+
+.active {
+	font-size: 25px;
+}
+
+.dialog_head {
+	text-transform: uppercase;
+	font-size: 26px;
+	margin-bottom: 0;
+	padding-left: 10px;
+}
+
+/* ////////////////// */
+
+.messages {
+	width: 70%;
+}
+
+.messages_item {
+	display: flex;
+	list-style-type: none;
+	align-items: flex-start;
+}
+
+.messages_item p {
+	padding: 10px 20px 10px 20px;
+	display: inline-block;
+	width: 180px;
+	border: 3px solid #fff;
+	border-radius: 10px;
+	position: relative;
+	border-left: none;
+}
+
+.messages_item p::before {
+	content: '';
+	width: 3px;
+	height: 28px;
+	display: block;
+	background: white;
+	position: absolute;
+	top: -7px;
+	left: -5px;
+	transform: rotate(50deg);
+	border-radius: 10px;
+}
+
+.messages_item p::after {
+	content: '';
+	width: 3px;
+	height: 35px;
+	display: block;
+	background: white;
+	position: absolute;
+	top: 11px;
+	left: -6px;
+	transform: rotate(145deg);
+	border-radius: 10px;
+}
+
+.circle {
+	margin-top: 15px;
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	background: #fff;
+	border: 1px solid green;
+	margin-right: 45px;
+}

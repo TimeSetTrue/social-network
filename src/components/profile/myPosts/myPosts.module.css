@@ -1,0 +1,29 @@
+.posts {
+	margin: 0 20px;
+}
+
+.add_posts {}
+
+.add_posts h2 {}
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form input {
+	border: none;
+	border-radius: 8px;
+	padding: 20px;
+	font-size: 20px;
+}
+
+.form button {
+	margin-left: auto;
+	background: #efefef;
+	border: none;
+	padding: 15px 20px;
+	font-size: 17px;
+	margin-top: 20px;
+	border-radius: 5px;
+}

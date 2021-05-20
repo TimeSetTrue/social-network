@@ -1,0 +1,24 @@
+/* Avatar */
+.profile_info img {
+	width: 100%;
+	height: 300px;
+}
+
+.avatar img {
+	width: 300px;
+}
+
+.avatar {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+}
+
+.avatar_text p {
+	margin: 0 0 10px;
+	font-size: 20px;
+}
+
+.avatar_text h1 {
+	margin-bottom: 25px;
+}

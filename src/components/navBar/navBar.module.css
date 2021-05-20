@@ -17,3 +17,7 @@
 	text-decoration: none;
 	color: #fff;
 }
+
+.bar_list li a.active {
+	color: red;
+}
