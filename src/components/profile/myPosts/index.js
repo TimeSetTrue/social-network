@@ -1,2 +1,7 @@
 import MyPosts from './MyPosts';
-export default MyPosts;
+import MyPostsContainer from './myPostsContainer';
+
+export {
+	MyPosts,
+	MyPostsContainer
+}

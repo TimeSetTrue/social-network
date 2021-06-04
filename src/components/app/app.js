@@ -1,25 +1,26 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Header from '../header';
 import NavBar from '../navBar';
 import Profile from '../profile';
-import Dialogs from '../dialogs';
+import { DialogsContainer } from '../dialogs';
 import s from './app.module.css';
-import {BrowserRouter as Router, Route} from 'react-router-dom';
+import {Route} from 'react-router-dom';
+import { UsersContainer } from '../Users';
 
-const App = () => {
-	return (
-		<Router>
+export default class App extends Component {
+
+	render() {
+		return (
 			<div className={s.app}>
 				<Header / >
 				<NavBar />
 				<div className={s.content_wrapp}>
-					<Route path='/profile' component={Profile} />
-					<Route path='/dialogs' component={Dialogs} />
+					<Route path='/profile' render={ () => <Profile /> } />
+					<Route path='/dialogs' render={ () => <DialogsContainer />}/>
+					<Route path='/users' render={ () => <UsersContainer />}/>
 				</div>
 			</div>
-		</Router>
-		
-	)
+			
+		)
+	}
 }
-
-export default App;

@@ -1,0 +1,13 @@
+.dialogs_item {
+	padding: 15px 0;
+	font-size: 18px;
+	list-style-type: none;
+	text-decoration: none;
+}
+
+.dialogs_item::before {
+	content: "\2022";
+	font-size: 24px;
+	margin-right: 20px;
+	vertical-align: middle;
+}

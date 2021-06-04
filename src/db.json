@@ -1,0 +1,125 @@
+{
+	"users": [
+		{
+			"name": "Andrey",
+			"id": 1000,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": false
+		},
+		{
+			"name": "boba",
+			"id": 1001,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": true
+		},
+		{
+			"name": "Vova",
+			"id": 1002,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": false
+		},
+		{
+			"name": "Lexa",
+			"id": 1003,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": false
+		},
+		{
+			"name": "Nastuha",
+			"id": 1004,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": false
+		},
+		{
+			"name": "Katia",
+			"id": 1005,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": true
+		},
+		{
+			"name": "Testor",
+			"id": 1006,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": false
+		},
+		{
+			"name": "Killer",
+			"id": 1007,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": true
+		},
+		{
+			"name": "ErrorMan",
+			"id": 1008,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": false
+		},
+		{
+			"name": "Zero",
+			"id": 1009,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": false
+		},
+		{
+			"name": "Loser",
+			"id": 1010,
+			"uniqueUrlName": null,
+			"photos": {
+				"small": null,
+				"large": null
+			},
+			"status": null,
+			"followed": true
+		}
+	]
+}

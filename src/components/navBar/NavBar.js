@@ -1,31 +1,35 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './navBar.module.css';
+import { connect } from 'react-redux'; 
 
-const NavBar = () => {
+const NavBar = (props) => {
+
+	const sideBarList = props.sideBar.map(item => {
+		let lower = item.barList.toLowerCase();
+		
+		return (
+			<li key={item.id}>
+				<NavLink to={`/${lower}`} activeClassName={s.active}>{item.barList}</NavLink>
+			</li>
+		)
+	});
+
 	return (
 		<div className={s.bar}>
 			<nav>
 				<ul className={s.bar_list}>
-					<li>
-						<NavLink to="/profile" activeClassName={s.active}>Profile</NavLink>
-					</li>
-					<li>
-						<NavLink to="/dialogs" activeClassName={s.active}>Messages</NavLink>
-					</li>
-					<li>
-						<NavLink to="#">News</NavLink>
-					</li>
-					<li>
-						<NavLink to="#">Music</NavLink>
-					</li>
-					<li>
-						<NavLink to="#">Settings</NavLink>
-					</li>
+					{sideBarList}
 				</ul>
 			</nav>
 		</div>
 	)
 }
 
-export default NavBar;
+let mapStateToProps = (state) => {
+	return {
+		sideBar: state.sideBar.sideBar ,
+	}
+}
+
+export default connect(mapStateToProps)(NavBar);

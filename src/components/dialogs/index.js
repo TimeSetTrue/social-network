@@ -1,2 +1,7 @@
 import Dialogs from './Dialogs';
-export default Dialogs;
+import DialogsContainer from './DialogsContainer';
+
+export {
+	DialogsContainer,
+	Dialogs
+};

@@ -1,51 +1,48 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import s from './dialogs.module.css';
+import DialogsItem from './dialogsItem';
+import MessagesItem from './messagesItem';
 
+const Dialogs = ({
+	dialogsArray,
+	messagesArray,
+	valueMessageText,
+	addMessage,
+	changeValueMessage}) => {
+	
+	const dialogsElements = dialogsArray.map(dialog => {
+		return (
+			<DialogsItem key={dialog.id} name={dialog.name} id={dialog.id} />
+		)
+	});
+	
+	const messagesElements = messagesArray.map(message => {
+		return (
+			<MessagesItem key={message.id} messages={message.messages} />
+		)
+	});
 
-const DialogsItem = ({name, id}) => {
-	const path = `/dialogs/${id}`;
-
-	return (
-		<li className={s.dialogs_item}>
-			<Link to={path}>{name}</Link>
-		</li>
-	)
-}
-
-const MessagesItem = ({messages}) => {
-	return (
-		<li className={s.messages_item}>
-			<div className={s.circle}></div>
-			<p>{messages}</p>
-		</li>
-	)
-}
-
-const Dialogs = () => {
 	return (
 		<section>
 			<h1 className={s.dialog_head}>Dialogs</h1>
 			<div className={s.dialogs}>
 				<div className={s.dialog_list}>
-					<nav>
-						<ul>
-							<DialogsItem name='Andrey' id='1' />
-							<DialogsItem name='Masha' id='2' />
-							<DialogsItem name='Vadim' id='3' />
-							<DialogsItem name='Valera' id='4' />
-						</ul>
-					</nav>
+					{ dialogsElements }
 				</div>
 				<div className={s.messages}>
-					<nav>
-						<ul>
-							<MessagesItem messages='Hi' />
-							<MessagesItem messages='How are you?' />
-							<MessagesItem messages='My name is Andrey' />
-							<MessagesItem messages='Lose myPosts' />
-						</ul>
-					</nav>
+					{ messagesElements }
+					<form className={s.form} 
+						onSubmit={(e) => {
+							e.preventDefault();
+							addMessage(messagesArray)}}>
+						<input placeholder="your news..." 
+							onChange={(e) => {
+								e.preventDefault();
+								changeValueMessage(e.target.value)}}
+							value={valueMessageText}
+							/>
+						<button >Add posts</button>
+					</form>
 				</div>
 			</div>
 		</section>
