@@ -6,6 +6,7 @@ const initialState = {
 		{id: Math.random() * 10, post: 'hahahahah', liked: 5},
 	],
 	valuePostText: '',
+	profile: null,
 };
 
 
@@ -39,9 +40,21 @@ const postPageReducer = (state = initialState, action) => {
 				...state,
 				valuePostText: textPost,
 			};
+		case 'SET_PROFILE_USER':
+			return {
+				...state,
+				profile: action.profileId[0],
+			}
 		default:
 			return state;
 	}
+}
+
+export const setProfileUser = (profileId) => {
+	return {
+		type: 'SET_PROFILE_USER',
+		profileId,
+	};
 }
 
 export const addPost = (arrPosts) => {

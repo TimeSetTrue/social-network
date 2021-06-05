@@ -1,5 +1,9 @@
 const initialState = {
 	users: [],
+	pageCount: 1,
+	limitPage: 3,
+	totalUser: 20,
+	isLoading: false,
 }
 
 const usersPageReducer = (state = initialState, action) => {
@@ -31,9 +35,30 @@ const usersPageReducer = (state = initialState, action) => {
 				}),
 			};
 		case 'SET_USERS':
-			return { ...state, users: [...state.users, ...action.users], }
+			return { ...state, users: action.users }
+		case 'SET_PAGE':
+			return {
+				...state,
+				pageCount: action.page,
+			}
+		case 'TOGGLE_IS_LOADING':
+			return {...state, isLoading: action.loadingPage,}
 		default:
 			return state;
+	}
+}
+
+export const toggleLoading = (loadingPage) => {
+	return {
+		type: 'TOGGLE_IS_LOADING',
+		loadingPage,
+	}
+}
+
+export const setPage = (page) => {
+	return {
+		type: 'SET_PAGE',
+		page
 	}
 }
 
