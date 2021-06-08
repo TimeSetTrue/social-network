@@ -47,18 +47,9 @@ const dialogPageReducer = (state = initialState, action) => {
 }
 
 
-export const addMessage = (arrMessage) => {
-	return {
-		type: 'ADD_MESSAGE',
-		array: arrMessage,
-	};
-};
-
-export const changeValueMessage = (textMessage) => {
-	return {
-		type: 'CHANGE_VALUE_MESSAGE',
-		payload: textMessage,
-	};
-};
+export const addMessage = (arrMessage) => ({type: 'ADD_MESSAGE', array: arrMessage});
+export const changeValueMessage = (textMessage) => (
+		{type: 'CHANGE_VALUE_MESSAGE', payload: textMessage}
+	);
 
 export default dialogPageReducer;

@@ -1,16 +1,8 @@
 import React from 'react';
-import Loading from '../../loading';
 import s from './profileInfo.module.css';
 import photoUserDefault from '../../../assets/image/userPhoto.png';
 
 const ProfileInfo = (props) => {
-	if(!props.profile) {
-		return (
-			<>
-				<Loading />
-			</>
-		)
-	}
 
 	const {photos, name, birthday, city, personalSite, status} = props.profile;
 

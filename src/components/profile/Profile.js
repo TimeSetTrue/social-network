@@ -3,12 +3,10 @@ import s from './profile.module.css';
 import { MyPostsContainer } from './myPosts';
 import ProfileInfo from './profileInfo';
 
-
-const Profile = (props) => {
-
+const Profile = ({profile}) => {
 	return(
 		<section className={s.profile}>
-			<ProfileInfo profile={props.profile} />
+			<ProfileInfo profile={profile} />
 			<MyPostsContainer />
 		</section>
 	)

@@ -267,18 +267,54 @@
             "followed": false
         },
         {
-            "name": "moves",
+            "name": "Face",
             "id": 1019,
             "uniqueUrlName": null,
             "birthday": "12.03.1994",
             "city": "Samara",
             "personalSite": "https://keto.ru",
             "photos": {
-                "small": "https://lh3.googleusercontent.com/proxy/T7H57gWEwrmShjc3sgjljvahDC7OUHKBngkpcm1RZc0xsxuym93C670b_Ybq5-As8NdqRmwoZM3E4CFPrXr3v95QVB3dzciTgPSyzvy_HIu3n7ujuJjXghC7i-PZOseaTsfrR8_3wnbnrSbbkce63ndGiS9JgeqwdIx0xhKQ1w",
+                "small": "https://klike.net/uploads/posts/2021-01/1611131113_2.jpg",
+                "large": null
+            },
+            "status": null,
+            "followed": false
+        },
+        {
+            "name": "VODIM!",
+            "id": 1020,
+            "uniqueUrlName": null,
+            "birthday": "КОГДА ТО",
+            "city": "EKATIA",
+            "personalSite": "https://vk.com/drovadim",
+            "photos": {
+                "small": "https://sun9-55.userapi.com/impg/SreUseKwlkBvAS7uM3sqRLPyyK8nENiNe5sQIA/avmK0ZZTQmg.jpg?size=1620x2160&quality=96&sign=5dc0d304e8b659ab4d3a237d2c575126&type=album",
                 "large": null
             },
             "status": "Я ТУТ ОДИН РУССКИЙ",
             "followed": true
+        }
+    ],
+    "auth": [
+        {
+            "id":1006,
+            "email": "altus@mail.ru",
+            "login": "Andrey"
+        },
+        {
+            "id":1007,
+            "email": "altus01@mail.ru",
+            "login": "theBest"
+        },
+        {
+            "id":1002,
+            "email": "altusov@mail.ru",
+            "login": "Maha"
+        },
+        {
+            "id":1020,
+            "email": "altusov@mail.ru",
+            "login": "VODIM"
         }
     ]
 }

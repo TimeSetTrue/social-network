@@ -1,44 +1,32 @@
 import React, {Component} from 'react';
 import { connect } from 'react-redux';
 import Users from './Users';
-import {followUser, unFollowUser, setUsers, setPage, toggleLoading} from '../../redux/usersPage-reducer';
-import * as axios from 'axios';
+import {
+	followUser, unFollowUser, 
+	setPage, getUsersProfile
+} from '../../redux/usersPage-reducer';
 
 
 class UsersContainer extends Component {
 
 	componentDidMount() {
-		const {toggleLoading, limitPage, setUsers, pageCount} = this.props;
+		const {limitPage, pageCount} = this.props;
 
-		toggleLoading(true);
-		axios.get(`http://localhost:3000/users?_page=${pageCount}&_limit=${limitPage}`)
-			.then(result => {
-				toggleLoading(false);
-				setUsers(result.data);
-			});
+		this.props.getUsersProfile(pageCount, limitPage);
 	}
 
 	onPageChanged = (page) => {
-		const {toggleLoading, setPage, limitPage, setUsers} = this.props;
+		const {setPage, limitPage, getUsersProfile} = this.props;
 
-		toggleLoading(true);
 		setPage(page);
-		axios.get(`http://localhost:3000/users?_page=${page}&_limit=${limitPage}`)
-			.then(result => {
-				toggleLoading(false);
-				setUsers(result.data);
-			});
+		getUsersProfile(page, limitPage);
 	}
 
 	render() {
-		const {totalUser,
-				limitPage,
-				pageCount,
-				users,
-				unFollowUser,
-				followUser,
-				isLoading} = this.props;
-
+		const { totalUser, limitPage, 
+			pageCount, users, 
+			unFollowUser, followUser, 
+			isLoading } = this.props;
 
 		return <Users	totalUser={totalUser}
 						limitPage={limitPage}
@@ -47,13 +35,12 @@ class UsersContainer extends Component {
 						users={users}
 						unFollowUser={unFollowUser}
 						followUser={followUser}
-						isLoading={isLoading}
-				/>
+						isLoading={isLoading} />
 	}
 }
 
 const mapStateToProps = ({
-	usersPage: {users, pageCount, totalUser, limitPage, isLoading}
+	usersPage: { users, pageCount, totalUser, limitPage, isLoading }
 	}) => {
 		return {
 			users,
@@ -67,9 +54,8 @@ const mapStateToProps = ({
 const mapDispatchToProps = {
 	followUser,
 	unFollowUser,
-	setUsers,
 	setPage,
-	toggleLoading,
+	getUsersProfile,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);

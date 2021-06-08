@@ -1,26 +1,29 @@
-import * as axios from 'axios';
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
+import { compose } from 'redux';
 import Profile from './Profile';
-import {setProfileUser} from '../../redux/postPage-reducer';
+import { setProfileUser } from '../../redux/postPage-reducer';
 import { withRouter } from 'react-router';
+import Loading from '../loading';
+import { withRedirectForAuth } from '../hoc/withRedirectForAuth';
 
 class ProfileContainer extends Component {
 
 	componentDidMount() {
+		const {id, setProfileUser} = this.props;
 		let userId = this.props.match.params.userId;
 		if(!userId) {
-			userId = 1001;
+			userId = id;
 		}
-		axios.get(`http://localhost:3000/users?id=${userId}`)
-			.then(result => {
-				this.props.setProfileUser(result.data);
-			});
+		setProfileUser(userId);
 	}
 
 	render() {
+		const {profile} = this.props;
+		if(!profile) return <> <Loading /> </>;
+
 		return (
-			<Profile {...this.props} profile={this.props.profile} />
+			<Profile {...this.props} profile={profile} />
 		)
 	}
 };
@@ -28,13 +31,16 @@ class ProfileContainer extends Component {
 const mapStateToProps = (state) => {
 	return {
 		profile: state.postPage.profile,
+		id: state.auth.id,
 	}
 }
 
 const mapDispatchToProps = {
-	setProfileUser,
+	setProfileUser
 }
 
-const ProfileContainerRouter = withRouter(ProfileContainer);
-
-export default connect(mapStateToProps, mapDispatchToProps)(ProfileContainerRouter);
+export default compose(
+	withRedirectForAuth,
+	withRouter,
+	connect(mapStateToProps, mapDispatchToProps),
+)(ProfileContainer);

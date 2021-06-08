@@ -1,8 +1,10 @@
+import { usersAPI } from '../API/api';
+
 const initialState = {
 	users: [],
 	pageCount: 1,
 	limitPage: 3,
-	totalUser: 20,
+	totalUser: 21,
 	isLoading: false,
 }
 
@@ -48,38 +50,21 @@ const usersPageReducer = (state = initialState, action) => {
 	}
 }
 
-export const toggleLoading = (loadingPage) => {
-	return {
-		type: 'TOGGLE_IS_LOADING',
-		loadingPage,
-	}
-}
+export const toggleLoading = (loadingPage) => ({type: 'TOGGLE_IS_LOADING', loadingPage});
+export const setPage = (page) => ({type: 'SET_PAGE', page});
+export const followUser = (userId) => ({type: 'FOLLOW', userId});
+export const unFollowUser = (userId) => ({type: 'UNFOLLOW', userId});
+export const setUsers = (users) => ({type: 'SET_USERS', users});
 
-export const setPage = (page) => {
-	return {
-		type: 'SET_PAGE',
-		page
-	}
-}
-
-export const followUser = (userId) => {
-	return {
-		type: 'FOLLOW',
-		userId,
-	}
-}
-
-export const unFollowUser = (userId) => {
-	return {
-		type: 'UNFOLLOW',
-		userId,
-	}
-}
-
-export const setUsers = (users) => {
-	return {
-		type: 'SET_USERS',
-		users,
+export const getUsersProfile = (pageCount, limitPage) => {
+	return (dispatch) => {
+		dispatch(toggleLoading(true));
+		usersAPI.getPageUsers(pageCount, limitPage)
+			.then(result => {
+				dispatch(toggleLoading(false));
+				dispatch(setUsers(result.data));
+			})
+			.catch(error => new Error(error));
 	}
 }
 

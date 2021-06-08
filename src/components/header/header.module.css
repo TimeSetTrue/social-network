@@ -1,8 +1,15 @@
 .header {
 	grid-area: header;
 	background: green;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
 }
 
 .header img {
 	width: 60px;
+}
+
+.header__auth a {
+	padding: 0 10px;
 }

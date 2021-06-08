@@ -2,6 +2,16 @@ import { connect } from 'react-redux';
 import { addPost, changeValuePost } from '../../../redux/postPage-reducer';
 import MyPosts from './MyPosts';
 
+const MyPostsContainer = ({valuePostText, postArray, addPost, changeValuePost}) => {
+	return (
+		<MyPosts 
+			valuePostText={valuePostText}
+			postArray={postArray}
+			addPost={addPost}
+			changeValuePost={changeValuePost} />
+	)
+}
+
 const mapStateToProps = ({
 	postPage: {
 		valuePostText,
@@ -18,6 +28,4 @@ const mapDispatchToProps = {
 	changeValuePost,
 }
 
-const MyPostsContainer = connect(mapStateToProps, mapDispatchToProps)(MyPosts);
-
-export default MyPostsContainer;
+export default connect(mapStateToProps, mapDispatchToProps)(MyPostsContainer);

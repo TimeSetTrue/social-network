@@ -1,3 +1,5 @@
+import { usersAPI } from '../API/api';
+
 const initialState = {
 	postArray: [
 		{id: Math.random() * 10, post: 'Hello, my name is...', liked: 2},
@@ -10,7 +12,7 @@ const initialState = {
 };
 
 
-const postPageReducer = (state = initialState, action) => {
+const postPageReducer = (state = initialState, action) => { 
 	switch(action.type) {
 		case 'ADD_POST':
 			const {valuePostText} = state;
@@ -32,7 +34,6 @@ const postPageReducer = (state = initialState, action) => {
 			} else {
 				return state;
 			}
-
 		case 'CHANGE_VALUE_POST':
 			const textPost = action.payload;
 
@@ -50,25 +51,18 @@ const postPageReducer = (state = initialState, action) => {
 	}
 }
 
-export const setProfileUser = (profileId) => {
-	return {
-		type: 'SET_PROFILE_USER',
-		profileId,
-	};
+export const profileUser = (profileId) => ({type: 'SET_PROFILE_USER', profileId});
+export const addPost = (arrPosts) => ({type: 'ADD_POST', array: arrPosts});
+export const changeValuePost = (textPost) => ({type: 'CHANGE_VALUE_POST', payload: textPost});
+
+export const setProfileUser = (id) => {
+	return (dispatch) => {
+		usersAPI.getProfileUsers(id)
+			.then(result => {
+				dispatch(profileUser(result.data));
+			})
+			.catch(error => new Error(error));
+	}
 }
-
-export const addPost = (arrPosts) => {
-	return {
-		type: 'ADD_POST',
-		array: arrPosts,
-	};
-};
-
-export const changeValuePost = (textPost) => {
-	return {
-		type: 'CHANGE_VALUE_POST',
-		payload: textPost,
-	};
-};
 
 export default postPageReducer;

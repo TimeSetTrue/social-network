@@ -1,13 +1,27 @@
 import { connect } from 'react-redux';
 import {addMessage, changeValueMessage} from '../../redux/dialogPage-reducer';
+import { withRedirectForAuth } from '../hoc/withRedirectForAuth';
 import Dialogs from './Dialogs';
+import { compose } from 'redux';
+
+const DialogsContainer = ({dialogsArray, messagesArray, valueMessageText}) => {
+
+	return (
+		<Dialogs 
+			dialogsArray={dialogsArray}
+			messagesArray={messagesArray}
+			valueMessageText={valueMessageText}
+			addMessage={addMessage}
+			changeValueMessage={changeValueMessage} />
+	)
+}
 
 const mapStateToProps = ({
 	dialogPage: {
 		messagesArray, 
 		dialogsArray, 
 		valueMessageText }} ) => {
-			
+
 	return {
 		messagesArray,
 		dialogsArray,
@@ -20,5 +34,7 @@ const mapDispatchToProps = {
 	changeValueMessage,
 }
 
-const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
-export default DialogsContainer;
+export default compose(
+	withRedirectForAuth,
+	connect(mapStateToProps, mapDispatchToProps),
+)(DialogsContainer);
