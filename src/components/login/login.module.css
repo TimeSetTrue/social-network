@@ -1,0 +1,15 @@
+.formSub {
+	display: flex;
+	flex-direction: column;
+	width: 180px;
+	margin: 0 auto;
+}
+
+.formSub label {
+	padding-bottom: 15px;
+}
+
+.formBtn {
+	width: 80px;
+	margin: 0 auto;
+}

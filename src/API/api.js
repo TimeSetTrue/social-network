@@ -13,3 +13,4 @@ export const usersAPI = {
 		return axios.get(`${apiURL}users?_page=${pageCount}&_limit=${limitPage}`)
 	},
 }
+// http://localhost:3000/users/1001?_embed=status
