@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './components/app/App';
+import AppContainer from './components/app/appContainer';
 import {Provider} from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom';
 import store from './redux/store';
@@ -10,9 +10,8 @@ import store from './redux/store';
 ReactDOM.render(
   <Provider store={store}>
       <Router>
-        <App />,
+        <AppContainer />,
       </Router>
   </Provider>
   , document.getElementById('root')
 );
-

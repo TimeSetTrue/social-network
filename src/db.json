@@ -299,22 +299,26 @@
         {
             "id":1006,
             "email": "altus@mail.ru",
-            "login": "Andrey"
+            "login": "Andrey",
+            "password": "123"
         },
         {
             "id":1007,
             "email": "altus01@mail.ru",
-            "login": "theBest"
+            "login": "theBest",
+            "password": "321"
         },
         {
             "id":1002,
             "email": "altusov@mail.ru",
-            "login": "Maha"
+            "login": "Maha",
+            "password": "aaa"
         },
         {
             "id":1020,
             "email": "altusov@mail.ru",
-            "login": "VODIM"
+            "login": "VODIM",
+            "password": "333"
         }
     ]
 }

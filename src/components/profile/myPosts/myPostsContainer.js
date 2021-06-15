@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import { addPost, changeValuePost } from '../../../redux/postPage-reducer';
 import MyPosts from './MyPosts';

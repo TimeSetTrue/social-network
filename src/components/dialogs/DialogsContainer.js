@@ -1,3 +1,4 @@
+import React from 'react';
 import { connect } from 'react-redux';
 import {addMessage, changeValueMessage} from '../../redux/dialogPage-reducer';
 import { withRedirectForAuth } from '../hoc/withRedirectForAuth';

@@ -6,7 +6,7 @@ import {Route} from 'react-router-dom';
 import { UsersContainer } from '../Users';
 import ProfileContainer from '../profile/profileContainer';
 import HeaderContainer from '../header/headerContainer';
-import Login from '../login/login';
+import LoginContainer from '../login/loginContainer';
 
 export default class App extends Component {
 
@@ -19,7 +19,8 @@ export default class App extends Component {
 					<Route path='/profile/:userId?' render={ () => <ProfileContainer /> } />
 					<Route path='/dialogs' render={ () => <DialogsContainer />}/>
 					<Route path='/users' render={ () => <UsersContainer />}/>
-					<Route path='/auth' render={ () => <Login />}/>
+					{this.props.login ? null : 
+						<Route path='/auth' render={ () => <LoginContainer />}/>}
 				</div>
 			</div>
 		)
